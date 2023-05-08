@@ -6,7 +6,7 @@ var jwt = require("jsonwebtoken");
 const multer = require("multer");
 const upload = multer({ dest: "uploads" });
 const fs = require('fs');
-const UserModel = require("../models/UserModel");
+
 
 routerUser.post("/register", async (req, res) => {
   try {
@@ -118,10 +118,25 @@ routerUser.post('/data',async (req,res)=>{
 })
 routerUser.get('/:id',async (req,res)=>{
 const id = req.params.id
-const user = await UserModel.findById(id);
+const user = await User.findById(id);
 res.json(user);
 
 
+})
+
+routerUser.get('/followlist',async (req,res)=>{
+    
+    try{
+    
+    const userFollow = "await User.find();"
+    console.log(userFollow);
+    res.json(userFollow);
+    }catch(e){
+        console.log(e);
+        res.send("not");
+    }
+    
+    
 })
 
 module.exports = routerUser;
