@@ -22,7 +22,7 @@ async function dbConnection() {
   }
 }
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://rajatplusmern2.netlify.app',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
@@ -43,7 +43,7 @@ app.get("/" ,(req,res)=>{
     res.send("hi");
 }) 
 
-app.listen( 8000,async(e)=>{
+app.listen( process.env.PORT || 8000,async(e)=>{
     await dbConnection();
     console.log("Server started on ")
 })
