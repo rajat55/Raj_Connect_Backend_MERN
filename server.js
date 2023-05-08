@@ -43,7 +43,7 @@ app.get("/" ,(req,res)=>{
     res.send("hi");
 }) 
 
-app.listen( process.env.PORT || 8000,async(e)=>{
+app.listen( process.env.PORT || 8000, "0.0.0.0", async(e)=>{
     await dbConnection();
     console.log("Server started on ")
 })
